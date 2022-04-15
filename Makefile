@@ -1,2 +1,9 @@
+
+LIBFT = ./libft
+
+
 all:
-	echo hello ft_printf!
+	echo hello printf!
+
+library:
+	make -C ${LIBFT}
