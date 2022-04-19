@@ -1,5 +1,5 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# BUILDING DESCRIPTION														  #
+# LIBFT BUILDING DESCRIPTION											      #
 # Create a 'out' folder in root if necessary 								  #
 # Generate compiled .c files in ./out dir									  #
 # Generate a librar in root													  #
@@ -71,7 +71,7 @@ re: fclean all
 
 # Create(if necessary) 'obj' folder in root
 resolve_obj_folder:
-	mkdir -p obj
+	@mkdir -p obj 
 
 
 .PHONY: all clean fclean re resolve_obj_folder
