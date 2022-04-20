@@ -13,6 +13,9 @@ SRC_PATH = ./src
 INCLUDES_PATH = ./includes
 OBJ_PATH = ./obj
 
+# FOLDER NAME #################################################################
+OBJ_FOLDER = obj
+
 # SOURCES #####################################################################
 SRC_NAMES = ft_strlen.c ft_bzero.c ft_memset.c ft_memcpy.c \
 	  ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcmp.c \
@@ -37,19 +40,18 @@ RM = rm -rf
 CC = gcc
 
 
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # MANDATORY DIRECTIVES                  									  #
 # all - $(NAME) - clean - fclean - re   									  # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-all: resolve_obj_folder $(NAME)
+all: $(OBJ_FOLDER) $(NAME)
 
 # ar -rcs: generate library 
 $(NAME): $(OBJECT_WITH_PATH)
 	ar -rcs $(NAME) $(OBJECT_WITH_PATH)
 
-						  
+
 # '$<': first dependence item		  
 # '$@': target						  
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
@@ -63,15 +65,13 @@ fclean: clean
 
 re: fclean all
 
-
-
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Auxiliary directives    													  #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # Create(if necessary) 'obj' folder in root
-resolve_obj_folder:
-	@mkdir -p obj 
+$(OBJ_FOLDER):
+	@mkdir -p obj
 
 
 .PHONY: all clean fclean re resolve_obj_folder

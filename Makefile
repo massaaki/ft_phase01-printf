@@ -7,6 +7,9 @@ INCLUDES_PATH = ./includes
 OBJ_PATH = ./obj
 LIBRARIES_PATH = ./libraries
 
+# FOLDER NAME #################################################################
+OBJ_FOLDER = obj
+
 # SOURCES #####################################################################
 SRC_NAMES = ft_printf.c
 
@@ -24,7 +27,7 @@ CC = gcc
 # all - $(NAME) - clean - fclean - re   									  # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-all: library_dependences resolve_obj_folder $(NAME)
+all: library_dependences $(OBJ_FOLDER) $(NAME)
 
 $(NAME): $(OBJECT_WITH_PATH)
 	ar -rcs $(NAME) $(OBJECT_WITH_PATH) $(LIBRARIES_PATH)/libft/obj/*.o
@@ -52,7 +55,7 @@ library_dependences:
 	@make -C ${LIBRARIES_PATH}/libft
 
 # Create(if necessary) 'obj' folder in root
-resolve_obj_folder:
+$(OBJ_FOLDER):
 	@mkdir -p obj
 
 .PHONY: all clean fclean re resolve_obj_folder
