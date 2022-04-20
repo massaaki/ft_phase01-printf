@@ -23,8 +23,8 @@ RM = rm -rf
 CC = gcc
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# MANDATORY DIRECTIVES                  									  #
-# all - $(NAME) - clean - fclean - re   									  # 
+# MANDATORY DIRECTIVES                                                        #
+# all - $(NAME) - clean - fclean - re                                         # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 all: library_dependences $(OBJ_FOLDER) $(NAME)
@@ -48,7 +48,7 @@ re: fclean all
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# Auxiliary directives    													  #
+# Auxiliary directives                                                        #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 library_dependences:

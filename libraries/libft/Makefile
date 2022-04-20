@@ -1,8 +1,8 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# LIBFT BUILDING DESCRIPTION											      #
-# Create a 'out' folder in root if necessary 								  #
-# Generate compiled .c files in ./out dir									  #
-# Generate a librar in root													  #
+# LIBFT BUILDING DESCRIPTION	                                                #
+# Create a 'out' folder in root if necessary                                  #
+# Generate compiled .c files in ./out dir                                     #
+# Generate a librar in root                                                   #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # LIBRARY OUTPUT NAME
@@ -41,8 +41,8 @@ CC = gcc
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# MANDATORY DIRECTIVES                  									  #
-# all - $(NAME) - clean - fclean - re   									  # 
+# MANDATORY DIRECTIVES                                                        #
+# all - $(NAME) - clean - fclean - re                                         # 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 all: $(OBJ_FOLDER) $(NAME)
@@ -66,7 +66,7 @@ fclean: clean
 re: fclean all
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-# Auxiliary directives    													  #
+# Auxiliary directives                                                        #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # Create(if necessary) 'obj' folder in root
