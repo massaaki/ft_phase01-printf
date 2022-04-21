@@ -11,7 +11,7 @@ LIBRARIES_PATH = ./libraries
 OBJ_FOLDER = obj
 
 # SOURCES #####################################################################
-SRC_NAMES = ft_printf.c
+SRC_NAMES = ft_printf.c rule_signed_int.c
 
 # OBJECTS #####################################################################
 OBJECT_NAMES = $(SRC_NAMES:.c=.o)

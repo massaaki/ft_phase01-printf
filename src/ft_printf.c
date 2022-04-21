@@ -1,8 +1,28 @@
-#include <stdio.h>
 #include "ft_printf.h"
+// #include <stdio.h>
 
-void ft_printf(void)
+int ft_printf(const char *input_str, ...)
 {
-  printf("ft_printf called...\n");
-  printf("%zu\n", ft_strlen("hello"));
+  va_list ap;
+
+  va_start(ap, input_str);
+
+  while(*input_str)
+  {
+     if((*input_str) == '%' )
+     {
+       rule_signed_int(va_arg(ap, int));
+     }
+     else
+     {
+        write(1, input_str, 1);
+     }
+
+    input_str++;
+  }
+
+   va_end(ap);
+
+  write(1, "\n", 1);
+  return (0);
 }
