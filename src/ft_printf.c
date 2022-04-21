@@ -5,6 +5,8 @@ int ft_printf(const char *input_str, ...)
 {
   va_list ap;
 
+  printf("===> %d\n", FORMAT_UNSIGNED_INT);
+
   va_start(ap, input_str);
 
   while(*input_str)
