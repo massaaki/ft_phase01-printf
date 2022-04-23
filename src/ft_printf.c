@@ -39,6 +39,7 @@ char *ft_rule_to_str(const char **str, va_list *ap)
 
 	if (rule_type == FORMAT_SIGNED_INT)
 		value = ft_itoa(va_arg(*ap, int));
-
+	if (rule_type == FORMAT_UNSIGNED_INT)
+		value = ft_itoa_unsigned(va_arg(*ap, unsigned int));
 	return value;
 }

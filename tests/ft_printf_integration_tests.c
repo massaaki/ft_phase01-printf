@@ -37,22 +37,38 @@ Test(integration_test03_ft_printf, success_cases_return_test)
 /**
  * STDOUT
 */
+// WITHOUT ARGS
 Test(integration_test01_ft_printf, success_cases_without_args, .init = redirect_all_stdout)
 {
 	ft_printf("hello world");
 	cr_assert_stdout_eq_str("hello world", "expect print => 'hello world'");
 }
 
+// INT - Positive
 Test(integration_test02_ft_printf, success_cases_with_int_args, .init = redirect_all_stdout)
 {
 	ft_printf("hello: %d world\n", 123456);
 	cr_assert_stdout_eq_str("hello: 123456 world\n", "expect print => 'hello: 123456 world\n'");
 }
 
+// INT - Negative
+Test(integration_test03_ft_printf, success_cases_with_int_negative_args, .init = redirect_all_stdout)
+{
+	ft_printf("hello: %d world\n", -123456);
+	cr_assert_stdout_eq_str("hello: -123456 world\n", "expect print => 'hello: -123456 world\n'");
+}
 
-
-Test(integration_test02_ft_printf, success_cases_with_int_multiple_args, .init = redirect_all_stdout)
+// INT - Multiple values
+Test(integration_test03_ft_printf, success_cases_with_int_multiple_args, .init = redirect_all_stdout)
 {
 	ft_printf("hello: %d %d %d world\n", 12, 23, 56);
 	cr_assert_stdout_eq_str("hello: 12 23 56 world\n", "expect print => 'hello: 12 23 56 world\n'");
+}
+
+// UNSIGNED INT - max unsigned value
+Test(integration_test04_ft_printf, success_cases_with_unsigned_int_args, .init = redirect_all_stdout)
+{
+	unsigned int max_unsigned_value = 4294967295;
+	ft_printf("hello: %u world\n", max_unsigned_value);
+	cr_assert_stdout_eq_str("hello: 4294967295 world\n", "expect print => 'hello: 123456 world\n'");
 }
