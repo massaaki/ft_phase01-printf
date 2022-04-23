@@ -4,25 +4,26 @@
  * Receive str starting with zero
  * and return rule identified 
 **/
-int ft_rule_identify(char *str)
+int ft_rule_identify(const char **str)
 {
-  if(!str || (*(str + 1) == '\0'))
+  if (!*str || (*(*str + 1) == '\0'))
     return -1;
-  if (*(str + 1) == 'd' || *(str + 1) == 'i')
+  (*str)++;
+  if (*(*str) == 'd' || *(*str) == 'i')
     return FORMAT_SIGNED_INT;
-  if( *(str + 1) == 'u')
+  if (*(*str) == 'u')
     return FORMAT_UNSIGNED_INT;
-  if (*(str + 1) == 'c')
+  if (*(*str) == 'c')
     return FORMAT_SINGLE_CHAR;
-  if( *(str + 1) == 's')
+  if (*(*str) == 's')
     return FORMAT_STRING;
-  if( *(str + 1) == 'p')
+  if (*(*str) == 'p')
     return FORMAT_POINTER;
-  if( *(str + 1) == 'x')
+  if (*(*str) == 'x')
     return FORMAT_HEX_LOWER;
-  if( *(str + 1) == 'X')
+  if (*(*str) == 'X')
     return FORMAT_HEX_UPPER;
-  if( *(str + 1) == '%')
+  if (*(*str) == '%')
     return FORMAT_PERCENT;
   return (-1);
 }

@@ -69,3 +69,9 @@ Test(unit_test_02_ft_rule_identify, error_cases)
 	result = ft_rule_identify("!");
 	cr_assert(result == expected, "Expected to return -1 when arg=NULL");
 }
+
+// Test(unit_test_03_ft_rule_to_str, success_cases)
+// {
+
+// 	ft_rule_to_str()
+// }

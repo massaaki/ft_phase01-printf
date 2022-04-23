@@ -1,23 +1,44 @@
 #include "ft_printf.h"
-// #include <stdio.h>
+
+int to_int(void *value);
 
 int ft_printf(const char *input_str, ...)
 {
   va_list ap;
+	char *arg_converted;
+	int printed;
 
-  va_start(ap, input_str);
-
-  while(*input_str)
+	printed = 0;
+	va_start(ap, input_str);
+	while(*input_str)
   {
-    //  if((*input_str) == '%')
-    //  {
-    //    ft_rule_identify(input_str);
-    //  }
-    //  else
-        write(1, input_str, 1);
-
-    input_str++;
+		if((*input_str) == '%') {
+			arg_converted = ft_rule_to_str(&input_str, &ap);
+			write(1, arg_converted, ft_strlen(arg_converted));
+			printed += ft_strlen(arg_converted);
+			free(arg_converted);
+		}
+		else {
+			printed++;
+			write(1, input_str, 1);
+		}
+			
+	input_str++;
   }
    va_end(ap);
-  return (0);
+	 return (printed);
+}
+
+char *ft_rule_to_str(const char **str, va_list *ap)
+{
+	int rule_type;
+	char *value;
+
+	value = NULL;
+	rule_type = ft_rule_identify(str);
+
+	if (rule_type == FORMAT_SIGNED_INT)
+		value = ft_itoa(va_arg(*ap, int));
+
+	return value;
 }

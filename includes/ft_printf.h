@@ -20,7 +20,8 @@
 # define FORMAT_PERCENT 7
 
 int ft_printf(const char *input_str, ...);
-int ft_rule_identify(char *str);
-int rule_signed_int(int value);
+char *ft_rule_to_str(const char **str, va_list *ap);
+int ft_rule_identify(const char **str);
+int ft_rule_signed_int(int value);
 
 #endif

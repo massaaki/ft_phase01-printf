@@ -56,6 +56,9 @@ test_unit:
 test_integration:
 	@make integration -C ./tests
 
+test_original:
+	@make original -C ./tests
+
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Auxiliary directives                                                        #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
