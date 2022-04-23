@@ -4,6 +4,7 @@ int rule_signed_int(int value)
 {
   int qty_printed;
 
+  printf("===> %d\n", value);
   qty_printed = 5;
   if(value > 1)
   {

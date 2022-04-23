@@ -11,7 +11,8 @@ LIBRARIES_PATH = ./libraries
 OBJ_FOLDER = obj
 
 # SOURCES #####################################################################
-SRC_NAMES = ft_printf.c rule_signed_int.c
+SRC_NAMES = ft_printf.c rule_signed_int.c \
+						ft_rule_identify.c
 
 # OBJECTS #####################################################################
 OBJECT_NAMES = $(SRC_NAMES:.c=.o)
@@ -45,7 +46,14 @@ fclean: clean
 
 re: fclean all
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Test                                                                        #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+test_unit:
+	@make unit -C ./tests
 
+test_integration:
+	@make integration -C ./tests
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Auxiliary directives                                                        #
