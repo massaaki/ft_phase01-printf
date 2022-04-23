@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int rule_signed_int(int value)
+int ft_rule_signed_int(int value)
 {
   int qty_printed;
 

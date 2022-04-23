@@ -11,7 +11,8 @@ LIBRARIES_PATH = ./libraries
 OBJ_FOLDER = obj
 
 # SOURCES #####################################################################
-SRC_NAMES = ft_printf.c rule_signed_int.c \
+SRC_NAMES = ft_printf.c \
+						ft_rule_signed_int.c \
 						ft_rule_identify.c
 
 # OBJECTS #####################################################################
