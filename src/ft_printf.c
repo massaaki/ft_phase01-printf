@@ -41,5 +41,11 @@ char *ft_rule_to_str(const char **str, va_list *ap)
 		value = ft_itoa(va_arg(*ap, int));
 	if (rule_type == FORMAT_UNSIGNED_INT)
 		value = ft_itoa_unsigned(va_arg(*ap, unsigned int));
+	if (rule_type == FORMAT_SINGLE_CHAR) {
+		value = (char *)malloc(sizeof(char) + 1);
+		value[0] = (char)va_arg(*ap, int);
+		value[1] = '\0';
+	}
+
 	return value;
 }
