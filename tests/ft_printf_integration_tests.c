@@ -86,3 +86,25 @@ Test(integration_pt02_test05_ft_printf, success_cases_with_unsigned_int_args, .i
 	ft_printf("hello: %u world\n", max_unsigned_value);
 	cr_assert_stdout_eq_str("hello: 4294967295 world\n", "expect print => 'hello: 123456 world\n'");
 }
+
+// CHAR - one arg
+Test(integration_pt02_test06_ft_printf, success_cases_with_char_args, .init = redirect_all_stdout)
+{
+	char letter = 'a';
+	ft_printf("hello: %c world\n", letter);
+	cr_assert_stdout_eq_str("hello: a world\n", "expect print => 'hello: a world\n'");
+}
+// CHAR - \n
+Test(integration_pt02_test07_ft_printf, success_cases_with_special_char_args, .init = redirect_all_stdout)
+{
+	char letter = '\n';
+	ft_printf("hello: %c world\n", letter);
+	cr_assert_stdout_eq_str("hello: \n world\n", "expect print => 'hello: \n world\n'");
+}
+
+// CHAR - multiple args
+Test(integration_pt02_test08_ft_printf, success_cases_with_multiple_char_args, .init = redirect_all_stdout)
+{
+	ft_printf("hello: %c %c %c %c world\n", 'a', 'b', 'c', 'd');
+	cr_assert_stdout_eq_str("hello: a b c d world\n", "expect print => 'hello: a b c d world\n'");
+}
