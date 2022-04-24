@@ -36,7 +36,7 @@ Test(integration_pt01_test01_ft_printf, success_cases_int_return_test)
 }
 
 // UNSIGNED INT - Return correctly value for UNSIGNED INT values
-Test(integration_pt01_test02_ft_printf, success_cases_unsigned_intreturn_test)
+Test(integration_pt01_test02_ft_printf, success_cases_unsigned_int_return_test)
 {
 	unsigned int result;
 	unsigned int expected;
@@ -45,6 +45,17 @@ Test(integration_pt01_test02_ft_printf, success_cases_unsigned_intreturn_test)
 
 	result = ft_printf("hello: %u world\n", max_unsigned_value);
 	expected = printf("hello: %u world\n", max_unsigned_value);
+	cr_assert(result == expected, "Expected %d but received %d", expected, result);
+}
+
+// CHAR - Return correctly value for UNSIGNED INT values
+Test(integration_pt01_test03_ft_printf, success_cases_char_return_test)
+{
+	unsigned int result;
+	unsigned int expected;
+
+	result = ft_printf("hello: %c%c world\n", 'a', 'b');
+	expected = printf("hello: %c%c world\n", 'a', 'b');
 	cr_assert(result == expected, "Expected %d but received %d", expected, result);
 }
 
