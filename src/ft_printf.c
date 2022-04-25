@@ -49,6 +49,8 @@ char *ft_rule_to_str(const char **str, va_list *ap)
 	}
 	if (rule_type == FORMAT_STRING)
 		value = ft_strdup(va_arg(*ap, char *));
-
+	if (rule_type == FORMAT_POINTER)
+		value = ft_llong_i_to_hex((unsigned long long) va_arg(*ap, unsigned long long));
+	
 	return value;
 }
