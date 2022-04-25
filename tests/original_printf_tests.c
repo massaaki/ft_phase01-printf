@@ -16,9 +16,12 @@ int main(void)
 	// printf("'%d'\n", singleChar);					 // '90' <== returns ASCII
 	// printf("'%1.4s'\n", str); // 'min 4, max 8 -> if strlen==0 prints ' '
 
-	result = printf("%s", "hello: 123456 world\n");
+	// result = printf("%s", "hello: 123456 world\n");
 
-	printf("\n\nresult: %d\n", result);
+
+	// printf("hello: %p world\n", &str);
+
+	// printf("\n\nresult: %d\n", result);
 	return (0);
 }
 
