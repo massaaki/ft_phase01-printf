@@ -106,6 +106,20 @@ Test(integration_pt01_test07_ft_printf, success_cases_X_return_test)
 	cr_assert(result == expected, "Expected %d but received %d", expected, result);
 }
 
+// Percent - return correct length
+Test(integration_pt01_test08_ft_printf, success_cases_percent_return_test)
+{
+	int result;
+	int expected;
+
+	result = ft_printf("hello: %% world\n");
+	expected = printf("hello: %% world\n");
+	cr_assert(result == expected, "Expected %d but received %d", expected, result);
+}
+
+
+
+
 /**
  * STDOUT
  */
@@ -219,4 +233,19 @@ Test(integration_pt02_test12_ft_printf, success_cases_with_X_args, .init = redir
 	unsigned int value = 7362;
 	ft_printf("hello %X world\n", value);
 	cr_assert_stdout_eq_str("hello 1CC2 world\n", "expect print 'hello 1CC2 world\n'");
+}
+
+// PERCENT - one arg
+Test(integration_pt02_test13_ft_printf, success_cases_with_percent_arg, .init = redirect_all_stdout)
+{
+	// GET PRINTF CONTENT
+	char *expected;
+	size_t size;
+	size = snprintf(NULL, 0, "hello %% world\n");
+	expected = (char *)malloc(size + 1);
+	snprintf(expected, size + 1, "hello %% world\n");
+
+
+	ft_printf("hello %% world\n");
+	cr_assert_stdout_eq_str(expected, "expect print '%s'", expected);
 }

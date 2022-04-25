@@ -64,5 +64,9 @@ char *ft_rule_to_str(const char **str, va_list *ap)
 			index++;
 		}
 	}
+	if (rule_type == FORMAT_PERCENT)
+	{
+		value = ft_strdup("%");
+	}
 	return value;
 }
