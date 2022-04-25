@@ -117,6 +117,23 @@ Test(integration_pt01_test08_ft_printf, success_cases_percent_return_test)
 	cr_assert(result == expected, "Expected %d but received %d", expected, result);
 }
 
+// multiple - return correct length
+Test(integration_pt01_test09_ft_printf, success_cases_various_return_test)
+{
+	int num_int = INT_MAX;
+	char str[] = "hello world";
+	unsigned int num_uint = UINT_MAX;
+	unsigned int num2_uint = 3873821;
+	char letter = 'P';
+
+	int result;
+	int expected;
+
+	result = ft_printf("Hello! %d%%%s-%c%x-%X%%\n", num_int, str, letter, num_uint, num2_uint);
+	expected = printf("Hello! %d%%%s-%c%x-%X%%\n", num_int, str, letter, num_uint, num2_uint);
+	cr_assert(result == expected, "Expected %d but received %d", expected, result);
+}
+
 
 
 
@@ -248,4 +265,27 @@ Test(integration_pt02_test13_ft_printf, success_cases_with_percent_arg, .init = 
 
 	ft_printf("hello %% world\n");
 	cr_assert_stdout_eq_str(expected, "expect print '%s'", expected);
+}
+
+
+
+// VARIOUS TESTS
+Test(integration_pt03_test01_ft_printf, multiple_types_args, .init = redirect_all_stdout)
+{
+	int num_int = INT_MAX;
+	char str[] = "hello world";
+	unsigned int num_uint= UINT_MAX;
+	unsigned int num2_uint = 3873821;
+	char letter = 'P';
+
+	//GET PRINTF CONTENT
+	char *expected;
+	size_t size;
+	size = snprintf(NULL, 0, "Hello! %d%%%s-%c%x-%X%%\n", num_int, str, letter, num_uint, num2_uint);
+	expected = (char *)malloc(size + 1);
+	snprintf(expected, size + 1, "Hello! %d%%%s-%c%x-%X%%\n", num_int, str, letter, num_uint, num2_uint);
+
+	ft_printf("Hello! %d%%%s-%c%x-%X%%\n", num_int, str, letter, num_uint, num2_uint);
+	cr_assert_stdout_eq_str(expected, "expect print '%s'", expected);
+	// Hello! 2147483647%hello world-Pffffffff-3B1C1D%
 }
