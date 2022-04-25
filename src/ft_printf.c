@@ -33,6 +33,7 @@ char *ft_rule_to_str(const char **str, va_list *ap)
 {
 	int rule_type;
 	char *value;
+	int index;
 
 	value = NULL;
 	rule_type = ft_rule_identify(str);
@@ -53,5 +54,15 @@ char *ft_rule_to_str(const char **str, va_list *ap)
 		value = ft_llong_i_to_hex((unsigned long long) va_arg(*ap, unsigned long long));
 	if (rule_type == FORMAT_HEX_LOWER)
 		value = ft_unsigned_i_to_hex(va_arg(*ap, unsigned int));
+	if (rule_type == FORMAT_HEX_UPPER)
+	{
+		value = ft_unsigned_i_to_hex(va_arg(*ap, unsigned int));
+		index = 0;
+		while (value[index] != '\0')
+		{
+			value[index] = ft_toupper(value[index]);
+			index++;
+		}
+	}
 	return value;
 }

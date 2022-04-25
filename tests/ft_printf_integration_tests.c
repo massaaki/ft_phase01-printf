@@ -94,6 +94,18 @@ Test(integration_pt01_test06_ft_printf, success_cases_x_return_test)
 	cr_assert(result == expected, "Expected %d but received %d", expected, result);
 }
 
+// X - return correct length
+Test(integration_pt01_test07_ft_printf, success_cases_X_return_test)
+{
+	int result;
+	int expected;
+	unsigned int value = UINT_MAX;
+
+	result = ft_printf("hello: %X world\n", value);
+	expected = printf("hello: %X world\n", value);
+	cr_assert(result == expected, "Expected %d but received %d", expected, result);
+}
+
 /**
  * STDOUT
  */
@@ -192,11 +204,19 @@ Test(integration_pt02_test10_ft_printf, success_cases_with_pointer_args, .init =
 	cr_assert_stdout_eq_str(expected, "expect print '%s'", expected);
 }
 
-// HEX - one arg
+// HEX LOWER- one arg
 Test(integration_pt02_test11_ft_printf, success_cases_with_x_args, .init = redirect_all_stdout)
 {
 	unsigned int value = UINT_MAX;
 	ft_printf("hello %x world\n", UINT_MAX);
 
 	cr_assert_stdout_eq_str("hello ffffffff world\n", "expect print 'hello ffffffff world'");
+}
+
+// HEX UPPER - one arg
+Test(integration_pt02_test12_ft_printf, success_cases_with_X_args, .init = redirect_all_stdout)
+{
+	unsigned int value = 7362;
+	ft_printf("hello %X world\n", value);
+	cr_assert_stdout_eq_str("hello 1CC2 world\n", "expect print 'hello 1CC2 world\n'");
 }
