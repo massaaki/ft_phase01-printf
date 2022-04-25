@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_llong_i_to_hex.c                                :+:      :+:    :+:   */
+/*   ft_unsigned_i_to_hex.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmassaak <mmassaak@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 01:12:06 by mmassaak          #+#    #+#             */
-/*   Updated: 2022/04/24 21:36:02 by mmassaak         ###   ########.fr       */
+/*   Updated: 2022/04/24 21:43:22 by mmassaak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_set_hex_nums(char *hex_nums);
-int		ft_num_length(unsigned long long number);
-void	revert_str(char **str);
+void	ft_set_hex_nums_fn2(char *hex_nums);
+int		ft_num_length_fn2(unsigned int number);
+void	revert_str_fn2(char **str);
 
-char	*ft_llong_i_to_hex(unsigned long long number)
+char	*ft_unsigned_i_to_hex(unsigned int number)
 {
 	char				hex_nums[16];
 	unsigned long long	rest;
@@ -24,9 +24,9 @@ char	*ft_llong_i_to_hex(unsigned long long number)
 	int					result_last_index;
 	int					index;
 
-	result_last_index = ft_num_length(number);
-	ft_set_hex_nums(hex_nums);
-	result = (char *)malloc(result_last_index * sizeof(char) + 3);
+	result_last_index = ft_num_length_fn2(number);
+	ft_set_hex_nums_fn2(hex_nums);
+	result = (char *)malloc(result_last_index * sizeof(char) + 1);
 	index = 0;
 	while (number / 16 != 0)
 	{
@@ -36,14 +36,12 @@ char	*ft_llong_i_to_hex(unsigned long long number)
 		index++;
 	}
 	result[index] = hex_nums[number];
-	result[index + 1] = 'x';
-	result[index + 2] = '0';
-	result[index + 3] = '\0';
-	revert_str(&result);
+	result[index + 1] = '\0';
+	revert_str_fn2(&result);
 	return (result);
 }
 
-void	revert_str(char **str)
+void	revert_str_fn2(char **str)
 {
 	char	temp;
 	int		length;
@@ -63,7 +61,7 @@ void	revert_str(char **str)
 	}
 }
 
-int	ft_num_length(unsigned long long number)
+int ft_num_length_fn2(unsigned int number)
 {
 	int	qty;
 
@@ -76,7 +74,7 @@ int	ft_num_length(unsigned long long number)
 	return (qty + 1);
 }
 
-void	ft_set_hex_nums(char *hex_nums)
+void	ft_set_hex_nums_fn2(char *hex_nums)
 {
 	hex_nums[0] = '0';
 	hex_nums[1] = '1';

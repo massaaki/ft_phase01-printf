@@ -55,5 +55,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char *ft_itoa_unsigned(unsigned int n);
 char *ft_llong_i_to_hex(unsigned long long number);
+char *ft_unsigned_i_to_hex(unsigned int number);
 
 #endif
