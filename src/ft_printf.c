@@ -51,6 +51,7 @@ char *ft_rule_to_str(const char **str, va_list *ap)
 		value = ft_strdup(va_arg(*ap, char *));
 	if (rule_type == FORMAT_POINTER)
 		value = ft_llong_i_to_hex((unsigned long long) va_arg(*ap, unsigned long long));
-	
+	if (rule_type == FORMAT_HEX_LOWER)
+		value = ft_unsigned_i_to_hex(va_arg(*ap, unsigned int));
 	return value;
 }
