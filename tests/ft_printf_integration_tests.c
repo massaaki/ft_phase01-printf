@@ -7,6 +7,7 @@
 
 #include <string.h>
 #include <stdio.h>
+#include <limits.h>
 
 #include "ft_printf.h"
 // Run before start test
@@ -78,6 +79,18 @@ Test(integration_pt01_test05_ft_printf, success_cases_pointer_return_test)
 
 	result = ft_printf("hello: %p world\n", &str);
 	expected = printf("hello: %p world\n", &str);
+	cr_assert(result == expected, "Expected %d but received %d", expected, result);
+}
+
+// x - return correct length
+Test(integration_pt01_test06_ft_printf, success_cases_x_return_test)
+{
+	int result;
+	int expected;
+	unsigned int value = UINT_MAX;
+
+	result = ft_printf("hello: %x world\n", value);
+	expected = printf("hello: %x world\n", value);
 	cr_assert(result == expected, "Expected %d but received %d", expected, result);
 }
 
@@ -177,4 +190,13 @@ Test(integration_pt02_test10_ft_printf, success_cases_with_pointer_args, .init =
 	// ft_printf("hello: %p world\n", &str);
 	ft_printf("hello %p world\n", &str);
 	cr_assert_stdout_eq_str(expected, "expect print '%s'", expected);
+}
+
+// HEX - one arg
+Test(integration_pt02_test11_ft_printf, success_cases_with_x_args, .init = redirect_all_stdout)
+{
+	unsigned int value = UINT_MAX;
+	ft_printf("hello %x world\n", UINT_MAX);
+
+	cr_assert_stdout_eq_str("hello ffffffff world\n", "expect print 'hello ffffffff world'");
 }

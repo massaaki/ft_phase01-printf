@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <limits.h>
 int returnInt();
 
 int main(void)
@@ -7,6 +8,10 @@ int main(void)
 	char str[] = "hello world";
 	char singleChar = 'Z';
 	int result;
+
+	int test = INT_MIN;
+
+	printf("x: '%x'\n", test);
 
 	// printf("'%dany-string'\n", num_int);	 // '123any-string'
 	// printf("'% 5dany-string'\n", num_int); // '  123any-string'
