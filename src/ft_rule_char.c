@@ -2,6 +2,5 @@
 
 unsigned int ft_rule_char(char arg)
 {
-	write(1, &arg, 1);
-	return (1);
+	return write(1, &arg, 1);
 }
