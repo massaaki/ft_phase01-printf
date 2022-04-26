@@ -54,15 +54,12 @@ unsigned int ft_rule_to_str(const char **str, va_list *ap)
 	if (rule_type == FORMAT_STRING)
 		return ft_rule_str(va_arg(*ap, char *));
 	if (rule_type == FORMAT_POINTER)
-	{
 		return ft_rule_pointer((unsigned long long)va_arg(*ap, unsigned long long));
-		// value = ft_llong_i_to_hex((unsigned long long)va_arg(*ap, unsigned long long));
-		// length = ft_strlen(value);
-	}
 	if (rule_type == FORMAT_HEX_LOWER)
 	{
-		value = ft_unsigned_i_to_hex(va_arg(*ap, unsigned int));
-		length = ft_strlen(value);
+		return ft_rule_hex_lower(va_arg(*ap, unsigned int));
+		// value = ft_unsigned_i_to_hex(va_arg(*ap, unsigned int));
+		// length = ft_strlen(value);
 	}
 	if (rule_type == FORMAT_HEX_UPPER)
 	{
