@@ -13,7 +13,8 @@ OBJ_FOLDER = obj
 # SOURCES #####################################################################
 SRC_NAMES = ft_printf.c \
 						ft_rule_signed_int.c \
-						ft_rule_identify.c
+						ft_rule_identify.c \
+						ft_rule_str.c
 
 # OBJECTS #####################################################################
 OBJECT_NAMES = $(SRC_NAMES:.c=.o)

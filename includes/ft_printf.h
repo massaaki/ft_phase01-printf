@@ -19,9 +19,17 @@
 # define FORMAT_HEX_LOWER 6
 # define FORMAT_PERCENT 7
 
+// used to check errors
+struct s_flags
+{
+	int flag_int;
+	char *flag_str;
+};
+
 int ft_printf(const char *input_str, ...);
-char *ft_rule_to_str(const char **str, va_list *ap);
+unsigned int ft_rule_to_str(const char **str, va_list *ap);
 int ft_rule_identify(const char **str);
 int ft_rule_signed_int(int value);
+unsigned int ft_rule_str(char *arg);
 
 #endif

@@ -4,19 +4,24 @@ int to_int(void *value);
 
 int ft_printf(const char *input_str, ...)
 {
-  va_list ap;
-	char *arg_converted;
-	int printed;
+	va_list ap;
+	// char *arg_converted;
+	unsigned int printed;
 
 	printed = 0;
 	va_start(ap, input_str);
 	while(*input_str)
   {
 		if((*input_str) == '%') {
-			arg_converted = ft_rule_to_str(&input_str, &ap);
-			write(1, arg_converted, ft_strlen(arg_converted));
-			printed += ft_strlen(arg_converted);
-			free(arg_converted);
+			printed += ft_rule_to_str(&input_str, &ap);
+			
+			// if (arg_converted == NULL) {
+			// 	printf("ERROR DETECTED!!");
+			// 	return -1;
+			// }
+			// write(1, arg_converted, ft_strlen(arg_converted));
+			// printed += ft_strlen(arg_converted);
+			// free(arg_converted);
 		}
 		else {
 			printed++;
@@ -29,31 +34,47 @@ int ft_printf(const char *input_str, ...)
 	 return (printed);
 }
 
-char *ft_rule_to_str(const char **str, va_list *ap)
+unsigned int ft_rule_to_str(const char **str, va_list *ap)
 {
 	int rule_type;
 	char *value;
 	int index;
+	struct s_flags flags;
+	int length;
 
 	value = NULL;
 	rule_type = ft_rule_identify(str);
+	length = 0;
 
 	if (rule_type == FORMAT_SIGNED_INT)
-		value = ft_itoa(va_arg(*ap, int));
-	if (rule_type == FORMAT_UNSIGNED_INT)
+	{
+		flags.flag_int = va_arg(*ap, int);
+		value = ft_itoa(flags.flag_int);
+		length = ft_strlen(value);
+	}
+	if (rule_type == FORMAT_UNSIGNED_INT) {
 		value = ft_itoa_unsigned(va_arg(*ap, unsigned int));
+		length = ft_strlen(value);
+	}
 	if (rule_type == FORMAT_SINGLE_CHAR)
 	{
-		value = (char *)malloc(sizeof(char) + 1);
+		value = (char *)malloc(sizeof(char));
 		value[0] = (char)va_arg(*ap, int);
-		value[1] = '\0';
+		// value[1] = '\0';
+		length = 1;
 	}
 	if (rule_type == FORMAT_STRING)
-		value = ft_strdup(va_arg(*ap, char *));
+		return ft_rule_str(va_arg(*ap, char *));
 	if (rule_type == FORMAT_POINTER)
+	{
 		value = ft_llong_i_to_hex((unsigned long long) va_arg(*ap, unsigned long long));
+		length = ft_strlen(value);
+	}
 	if (rule_type == FORMAT_HEX_LOWER)
+	{
 		value = ft_unsigned_i_to_hex(va_arg(*ap, unsigned int));
+		length = ft_strlen(value);
+	}
 	if (rule_type == FORMAT_HEX_UPPER)
 	{
 		value = ft_unsigned_i_to_hex(va_arg(*ap, unsigned int));
@@ -63,10 +84,15 @@ char *ft_rule_to_str(const char **str, va_list *ap)
 			value[index] = ft_toupper(value[index]);
 			index++;
 		}
+		length = ft_strlen(value);
 	}
 	if (rule_type == FORMAT_PERCENT)
 	{
 		value = ft_strdup("%");
+		length = ft_strlen(value);
 	}
-	return value;
+
+	write(1, value, length);
+	free(value);
+	return length;
 }
