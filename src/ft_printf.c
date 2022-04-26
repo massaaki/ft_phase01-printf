@@ -11,7 +11,7 @@ int ft_printf(const char *input_str, ...)
 	printed = 0;
 	va_start(ap, input_str);
 	while(*input_str)
-  {
+	{
 		if((*input_str) == '%') {
 			printed += ft_rule_to_str(&input_str, &ap);
 			
@@ -29,9 +29,9 @@ int ft_printf(const char *input_str, ...)
 		}
 			
 	input_str++;
-  }
-   va_end(ap);
-	 return (printed);
+	}
+	va_end(ap);
+	return (printed);
 }
 
 unsigned int ft_rule_to_str(const char **str, va_list *ap)
@@ -47,10 +47,8 @@ unsigned int ft_rule_to_str(const char **str, va_list *ap)
 
 	if (rule_type == FORMAT_SIGNED_INT)
 		return ft_rule_signed_int(va_arg(*ap, int));
-	if (rule_type == FORMAT_UNSIGNED_INT) {
-		value = ft_itoa_unsigned(va_arg(*ap, unsigned int));
-		length = ft_strlen(value);
-	}
+	if (rule_type == FORMAT_UNSIGNED_INT)
+		return ft_rule_unsigned_int(va_arg(*ap, unsigned int));
 	if (rule_type == FORMAT_SINGLE_CHAR)
 	{
 		value = (char *)malloc(sizeof(char));

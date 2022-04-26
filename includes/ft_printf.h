@@ -31,5 +31,6 @@ unsigned int ft_rule_to_str(const char **str, va_list *ap);
 int ft_rule_identify(const char **str);
 int ft_rule_signed_int(int value);
 unsigned int ft_rule_str(char *arg);
+int ft_rule_unsigned_int(unsigned int arg);
 
 #endif
