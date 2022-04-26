@@ -33,5 +33,6 @@ int ft_rule_signed_int(int value);
 unsigned int ft_rule_str(char *arg);
 int ft_rule_unsigned_int(unsigned int arg);
 unsigned int ft_rule_char(char arg);
+unsigned int ft_rule_pointer(unsigned long long arg);
 
 #endif
