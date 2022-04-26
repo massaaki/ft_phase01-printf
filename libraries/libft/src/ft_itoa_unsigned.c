@@ -1,17 +1,14 @@
 #include "libft.h"
 
-static int	ft_get_decimal_unsigned(unsigned int n)
+static int ft_get_decimal_unsigned(unsigned int n)
 {
-	unsigned int	num;
-	unsigned int	ref;
-	int				count;
+	unsigned int num;
+	unsigned int ref;
+	int count;
 
 	ref = 1;
 	count = 0;
-	if (n < 0)
-		num = (n * -1);
-	else
-		num = n;
+	num = n;
 	while (num / ref != 0 && ref <= 1000000000)
 	{
 		count++;
@@ -20,33 +17,21 @@ static int	ft_get_decimal_unsigned(unsigned int n)
 	return (count);
 }
 
-static char	*ft_alloc_mem_unsigned(unsigned int *num, unsigned int n, int *len)
+static char *ft_alloc_mem_unsigned(unsigned int *num, unsigned int n, int *len)
 {
-	char	*result;
+	char *result;
 
-	if (n < 0)
-	{
-		*len += 1;
-		*num = (n * -1);
-		result = (char *)malloc((*len + 1) * sizeof(char));
-		if (!result)
-			return (NULL);
-		result[0] = '-';
-	}
-	else
-	{
-		*num = n;
-		result = (char *)malloc((*len + 1) * sizeof(char));
-		if (!result)
-			return (NULL);
-	}
+	*num = n;
+	result = (char *)malloc((*len + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
 	result[*len] = '\0';
 	return (result);
 }
 
-static char	*ft_alloc_zero_unsigned(void)
+static char *ft_alloc_zero_unsigned(void)
 {
-	char	*result;
+	char *result;
 
 	result = (char *)malloc(2 * sizeof(char));
 	if (!result)
@@ -56,11 +41,11 @@ static char	*ft_alloc_zero_unsigned(void)
 	return (result);
 }
 
-char	*ft_itoa_unsigned(unsigned int n)
+char *ft_itoa_unsigned(unsigned int n)
 {
-	char			*result;
-	unsigned int	num;
-	int				len;
+	char *result;
+	unsigned int num;
+	int len;
 
 	len = ft_get_decimal_unsigned(n);
 	if (n == 0)
@@ -78,7 +63,7 @@ char	*ft_itoa_unsigned(unsigned int n)
 	}
 	while (num > 0)
 	{
-		result[len - 1 ] = (num % 10) + '0';
+		result[len - 1] = (num % 10) + '0';
 		num = num / 10;
 		len--;
 	}
