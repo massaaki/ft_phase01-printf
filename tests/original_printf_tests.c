@@ -11,7 +11,7 @@ int main(void)
 
 	int test = INT_MIN;
 
-	printf("x: '%x'\n", test);
+	// printf("x: '%d'\n", str);
 
 	// printf("'%dany-string'\n", num_int);	 // '123any-string'
 	// printf("'% 5dany-string'\n", num_int); // '  123any-string'

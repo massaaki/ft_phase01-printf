@@ -70,6 +70,7 @@ Test(integration_pt01_test04_ft_printf, success_cases_string_return_test)
 	expected = printf("hello: %s world\n", "abcdefg");
 	cr_assert(result == expected, "Expected %d but received %d", expected, result);
 }
+
 // POINTER - return correct length
 Test(integration_pt01_test05_ft_printf, success_cases_pointer_return_test)
 {
@@ -289,3 +290,32 @@ Test(integration_pt03_test01_ft_printf, multiple_types_args, .init = redirect_al
 	cr_assert_stdout_eq_str(expected, "expect print '%s'", expected);
 	// Hello! 2147483647%hello world-Pffffffff-3B1C1D%
 }
+
+// ERROR TESTS
+Test(integration_pt04_test01_ft_printf, error01)
+{
+	//GET PRINTF CONTENT
+	// char *expected;
+	// size_t size;
+	// size = snprintf(NULL, 0, " %c %c %c ", '2', '1', 0);
+	// expected = (char *)malloc(size + 1);
+	
+	// snprintf(expected, size + 1, " %c %c %c ", '2', '1', 0);
+
+	// ft_printf(" %c %c %c ", '2', '1', 0);
+
+	// cr_assert_stdout_eq_str(expected, "expect print '%s'", expected);
+
+	// printf("%s\n", NULL);
+	ft_printf("%s\n", NULL);
+	// unsigned int length = write(1, "(null)", 6);
+	// printf("=>%u\n", length);
+}
+
+// 1.OK 2.OK 3.OK 4.OK 5.KO 6.OK 7.OK 8.KO 9.KO
+// mix
+
+// 	TEST(8, print(" %c %c %c ", '2', '1', 0));
+// TEST(9, print(" %c %c %c ", 0, '1', '2'));
+
+
