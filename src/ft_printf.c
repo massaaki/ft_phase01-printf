@@ -38,7 +38,7 @@ unsigned int ft_rule_to_str(const char **str, va_list *ap)
 {
 	int rule_type;
 	char *value;
-	int index;
+	// int index;
 	int length;
 
 	value = NULL;
@@ -56,22 +56,9 @@ unsigned int ft_rule_to_str(const char **str, va_list *ap)
 	if (rule_type == FORMAT_POINTER)
 		return ft_rule_pointer((unsigned long long)va_arg(*ap, unsigned long long));
 	if (rule_type == FORMAT_HEX_LOWER)
-	{
 		return ft_rule_hex_lower(va_arg(*ap, unsigned int));
-		// value = ft_unsigned_i_to_hex(va_arg(*ap, unsigned int));
-		// length = ft_strlen(value);
-	}
 	if (rule_type == FORMAT_HEX_UPPER)
-	{
-		value = ft_unsigned_i_to_hex(va_arg(*ap, unsigned int));
-		index = 0;
-		while (value[index] != '\0')
-		{
-			value[index] = ft_toupper(value[index]);
-			index++;
-		}
-		length = ft_strlen(value);
-	}
+		return ft_rule_hex_upper(va_arg(*ap, unsigned int));
 	if (rule_type == FORMAT_PERCENT)
 	{
 		value = ft_strdup("%");

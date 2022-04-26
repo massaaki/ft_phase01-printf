@@ -35,5 +35,6 @@ int ft_rule_unsigned_int(unsigned int arg);
 unsigned int ft_rule_char(char arg);
 unsigned int ft_rule_pointer(unsigned long long arg);
 unsigned int ft_rule_hex_lower(unsigned int arg);
+unsigned int ft_rule_hex_upper(unsigned int arg);
 
 #endif

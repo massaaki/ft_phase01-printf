@@ -18,7 +18,8 @@ SRC_NAMES = ft_printf.c \
 						ft_rule_str.c \
 						ft_rule_char.c \
 						ft_rule_pointer.c \
-						ft_rule_hex_lower.c
+						ft_rule_hex_lower.c \
+						ft_rule_hex_upper.c
 
 # OBJECTS #####################################################################
 OBJECT_NAMES = $(SRC_NAMES:.c=.o)
