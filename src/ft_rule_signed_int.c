@@ -1,15 +1,12 @@
 #include "ft_printf.h"
 
-int ft_rule_signed_int(int value)
+int ft_rule_signed_int(int arg)
 {
-  int qty_printed;
+	char *result;
+	unsigned int length;
 
-  printf("===> %d\n", value);
-  qty_printed = 5;
-  if(value > 1)
-  {
-    write(1, "(INT_12345)", 11);
-  }
-
-    return qty_printed;
+	result = ft_itoa(arg);
+	length = write(1, result, ft_strlen(result));
+	free(result);
+	return length;
 }

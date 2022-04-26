@@ -39,7 +39,6 @@ unsigned int ft_rule_to_str(const char **str, va_list *ap)
 	int rule_type;
 	char *value;
 	int index;
-	struct s_flags flags;
 	int length;
 
 	value = NULL;
@@ -47,11 +46,7 @@ unsigned int ft_rule_to_str(const char **str, va_list *ap)
 	length = 0;
 
 	if (rule_type == FORMAT_SIGNED_INT)
-	{
-		flags.flag_int = va_arg(*ap, int);
-		value = ft_itoa(flags.flag_int);
-		length = ft_strlen(value);
-	}
+		return ft_rule_signed_int(va_arg(*ap, int));
 	if (rule_type == FORMAT_UNSIGNED_INT) {
 		value = ft_itoa_unsigned(va_arg(*ap, unsigned int));
 		length = ft_strlen(value);
