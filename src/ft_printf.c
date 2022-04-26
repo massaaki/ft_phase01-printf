@@ -50,12 +50,7 @@ unsigned int ft_rule_to_str(const char **str, va_list *ap)
 	if (rule_type == FORMAT_UNSIGNED_INT)
 		return ft_rule_unsigned_int(va_arg(*ap, unsigned int));
 	if (rule_type == FORMAT_SINGLE_CHAR)
-	{
-		value = (char *)malloc(sizeof(char));
-		value[0] = (char)va_arg(*ap, int);
-		// value[1] = '\0';
-		length = 1;
-	}
+		return ft_rule_char((char)va_arg(*ap, int));
 	if (rule_type == FORMAT_STRING)
 		return ft_rule_str(va_arg(*ap, char *));
 	if (rule_type == FORMAT_POINTER)

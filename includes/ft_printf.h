@@ -32,5 +32,6 @@ int ft_rule_identify(const char **str);
 int ft_rule_signed_int(int value);
 unsigned int ft_rule_str(char *arg);
 int ft_rule_unsigned_int(unsigned int arg);
+unsigned int ft_rule_char(char arg);
 
 #endif
