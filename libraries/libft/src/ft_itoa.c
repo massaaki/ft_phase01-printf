@@ -6,7 +6,7 @@
 /*   By: mmassaak <mmassaak@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 03:06:49 by mmassaak          #+#    #+#             */
-/*   Updated: 2022/04/27 03:06:50 by mmassaak         ###   ########.fr       */
+/*   Updated: 2022/04/27 03:25:46 by mmassaak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ char	*ft_itoa(int n)
 	}
 	while (num > 0)
 	{
-		result[len - 1 ] = (num % 10) + '0';
+		result[len - 1] = (num % 10) + '0';
 		num = num / 10;
 		len--;
 	}

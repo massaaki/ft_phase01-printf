@@ -6,7 +6,7 @@
 /*   By: mmassaak <mmassaak@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 01:12:06 by mmassaak          #+#    #+#             */
-/*   Updated: 2022/04/24 21:43:22 by mmassaak         ###   ########.fr       */
+/*   Updated: 2022/04/27 03:26:58 by mmassaak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	revert_str_fn2(char **str)
 	}
 }
 
-int ft_num_length_fn2(unsigned int number)
+int	ft_num_length_fn2(unsigned int number)
 {
 	int	qty;
 
