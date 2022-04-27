@@ -6,13 +6,13 @@
 /*   By: mmassaak <mmassaak@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 03:09:53 by mmassaak          #+#    #+#             */
-/*   Updated: 2022/04/27 03:09:54 by mmassaak         ###   ########.fr       */
+/*   Updated: 2022/04/27 03:16:49 by mmassaak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int ft_rule_char(char arg)
+unsigned int	ft_rule_char(char arg)
 {
-	return write(1, &arg, 1);
+	return (write(1, &arg, 1));
 }

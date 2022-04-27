@@ -6,13 +6,13 @@
 /*   By: mmassaak <mmassaak@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 03:10:08 by mmassaak          #+#    #+#             */
-/*   Updated: 2022/04/27 03:10:09 by mmassaak         ###   ########.fr       */
+/*   Updated: 2022/04/27 03:12:49 by mmassaak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-unsigned int ft_rule_percent(void)
+unsigned int	ft_rule_percent(void)
 {
-	return write(1, "%", 1);
+	return (write(1, "%", 1));
 }
