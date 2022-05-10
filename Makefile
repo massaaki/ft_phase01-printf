@@ -48,9 +48,11 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 
 clean:
 	$(RM) $(OBJ_PATH)
+	$(RM) $(LIBRARIES_PATH)/libft/obj
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) $(LIBRARIES_PATH)/libft/*.a
 
 re: fclean all
 
